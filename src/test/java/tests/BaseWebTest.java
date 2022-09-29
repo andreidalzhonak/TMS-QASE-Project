@@ -17,7 +17,7 @@ public class BaseWebTest extends CommonBaseTest {
 
     @BeforeMethod
     @Parameters({"browser"})
-    public void setUp(@Optional("firefox") String browser) {
+    public void setUp(@Optional("chrome") String browser) {
         DriverFactory driverFactory = new DriverFactory();
         DriverType type = null;
         if (browser.equals("chrome")) {
