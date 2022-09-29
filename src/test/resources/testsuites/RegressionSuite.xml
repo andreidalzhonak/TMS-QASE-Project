@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Regression Test">
+    <test name="Login">
+        <classes>
+            <class name="tests.LoginTest"></class>
+        </classes>
+    </test>
+
+    <test name="Create New Project">
+        <classes>
+            <class name="tests.NewProjectTest"></class>
+        </classes>
+    </test>
+
+    <test name="Create New Test Case">
+        <classes>
+            <class name="tests.NewTestCaseTest"></class>
+        </classes>
+    </test>
+
+    <test name="Create New Test Suite">
+        <classes>
+            <class name="tests.NewTestSuiteTest"></class>
+        </classes>
+    </test>
+
+    <test name="Test Run">
+        <classes>
+            <class name="tests.TestRunTest"></class>
+        </classes>
+    </test>
+
+    <test name="Api">
+        <classes>
+            <class name="api.test.CreateMilestoneApiTest"></class>
+            <class name="api.test.CreateTestCaseApiTest"></class>
+            <class name="api.test.createTestSuiteApiTest"></class>
+        </classes>
+    </test>
+
+</suite>
