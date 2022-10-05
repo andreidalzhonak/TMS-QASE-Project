@@ -1,5 +1,7 @@
 package models;
 
+import constants.Credentials;
+
 public class LoginModel extends Credentials {
     public void setEmail(String email) {
         this.EMAIL = email;

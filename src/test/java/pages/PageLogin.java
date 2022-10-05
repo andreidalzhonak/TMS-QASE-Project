@@ -1,5 +1,6 @@
 package pages;
 
+import constants.Credentials;
 import constants.Urls;
 import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
