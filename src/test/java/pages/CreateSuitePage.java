@@ -9,28 +9,21 @@ import org.openqa.selenium.support.FindBy;
 import testdata.PrepareCreateSuiteData;
 
 public class CreateSuitePage extends BasePage {
-    private static final Logger LOGGER = LogManager.getLogger(CreateSuitePage.class.getName());
-
-    @FindBy(id = "name")
-    private WebElement suiteNameField;
-
-    @FindBy(xpath = "//div[contains(@id, 'descriptionGroup')]//p")
-    private WebElement descriptionSuiteField;
-
-    @FindBy(xpath = "//div[contains(@id, 'preconditionsGroup')]//p")
-    private WebElement preconditionsSuiteField;
-
-    @FindBy(id = "save-suite-button")
-    private WebElement saveButton;
-
-    @FindBy(xpath = "//div[@id='layout']/div[3]//span//span")
-    private WebElement saveMessage;
-
 
     public CreateSuitePage(WebDriver driver) {
         super(driver);
     }
-
+    private static final Logger LOGGER = LogManager.getLogger(CreateSuitePage.class.getName());
+    @FindBy(id = "name")
+    private WebElement suiteNameField;
+    @FindBy(xpath = "//div[contains(@id, 'descriptionGroup')]//p")
+    private WebElement descriptionSuiteField;
+    @FindBy(xpath = "//div[contains(@id, 'preconditionsGroup')]//p")
+    private WebElement preconditionsSuiteField;
+    @FindBy(id = "save-suite-button")
+    private WebElement saveButton;
+    @FindBy(xpath = "//div[@id='layout']/div[3]//span//span")
+    private WebElement saveMessage;
     @Step("Input Data for create Test Suite ")
     public void inputTestSuiteData() {
         LOGGER.debug(String.format("Input data in : %s", suiteNameField.getText()));

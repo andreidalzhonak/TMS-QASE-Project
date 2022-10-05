@@ -5,7 +5,6 @@ import utils.FakeMessageGenerator;
 import utils.GenerateTestData;
 
 public class PrepareCreateTestCaseData {
-
     public static CreateTestCaseDataModel getCreateTestCaseData() {
         return CreateTestCaseDataModel
                 .builder()

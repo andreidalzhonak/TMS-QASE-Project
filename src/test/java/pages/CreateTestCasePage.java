@@ -19,52 +19,38 @@ public class CreateTestCasePage extends BasePage {
     JavascriptExecutor js = (JavascriptExecutor) driver;
     @FindBy(id = "title")
     private WebElement titleField;
-
     @FindBy(id = "0-description")
     private WebElement descriptionField;
-
     @FindBy(id = "0-preconditions")
     private WebElement preconditionsField;
-
     @FindBy(id = "0-postconditions")
     private WebElement postconditionsField;
-
     @FindBy(xpath = "//div[contains(@class, 'steps-add')]//a[contains(@id, 'add-step')]")
     private WebElement addStepButton;
-
     @FindBy(id = "action[0]")
     private WebElement actionField;
-
     @FindBy(id = "data[0]")
     private WebElement inputDataField;
-
     @FindBy(id = "expected_result[0]")
     private WebElement expectedResultField;
-
     @FindBy(xpath = "//div[contains(@class, 'save-menu-wrapper')]//button[contains(@id, 'save-case')]")
     private WebElement saveButton;
-
     @FindBy(xpath = "//div[contains(@class, 'select-block')]//button[contains(@type, 'button')]")
     private WebElement testCaseSteps;
-
     @FindBy(xpath = "//div[contains(@class, 'select-block')]/div/div//div//div/div[contains(., 'Classic')]")
     private WebElement optionTestCaseSteps;
-
     @FindBy(xpath = " //*[@id=\"layout\"]/div[3]/div/span")
     private WebElement successfulNotificationCreateTestCase;
-
 
     public CreateTestCasePage(WebDriver driver) {
         super(driver);
     }
-
     @Step("Take successful message notification create Test Case ")
     public String getTestCaseMessage() {
         LOGGER.debug(String.format("Take message : %s", successfulNotificationCreateTestCase.getText()));
         String message = successfulNotificationCreateTestCase.getText();
         return message;
     }
-
     @Step("Choose option in Test Case Steps")
     public void selectOptionInListTestCaseSteps() {
         js.executeScript("arguments[0].scrollIntoView();", testCaseSteps);
@@ -73,7 +59,6 @@ public class CreateTestCasePage extends BasePage {
         LOGGER.debug(String.format("Click option: %s", optionTestCaseSteps.getText()));
         optionTestCaseSteps.click();
     }
-
     @Step("Click 'Add step' Button")
     public void clickAddStepButton() {
         js.executeScript("arguments[0].scrollIntoView();", addStepButton);
@@ -131,6 +116,5 @@ public class CreateTestCasePage extends BasePage {
         expectedResultField.sendKeys(FakeMessageGenerator.generateExpectedResultTestCase());
         LOGGER.info("Click Save button");
         clickSaveButton();
-
     }
 }

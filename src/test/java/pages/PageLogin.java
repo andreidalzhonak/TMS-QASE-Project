@@ -1,6 +1,5 @@
 package pages;
 
-import constants.Credentials;
 import constants.Urls;
 import io.qameta.allure.Step;
 import org.apache.log4j.LogManager;
@@ -14,33 +13,25 @@ public class PageLogin extends BasePage {
     private static final Logger LOGGER = LogManager.getLogger(PageLogin.class.getName());
     @FindBy(id = "inputEmail")
     private WebElement emailField;
-
     @FindBy(id = "inputPassword")
     private WebElement passwordField;
-
     @FindBy(id = "btnLogin")
     private WebElement loginButton;
-
     @FindBy(xpath = "//div[contains(@class, 'has-error')]//div")
     private WebElement notificationErrorEmail;
-
     public PageLogin(WebDriver driver) {
         super(driver);
     }
-
     @Step("Check notification text")
     public String takeNotificationError() {
         LOGGER.debug(String.format("Check notification: %s", notificationErrorEmail.getText()));
         String notification = notificationErrorEmail.getText();
         return notification;
     }
-
     @Step("Open account Url")
     public void openAccountsPage() {
         driver.get(Urls.APP_QASE_LOGIN);
     }
-
-
     @Step("Input Username and Password")
     public void loginToQase() {
         LOGGER.debug(String.format("Attempt to open URL: %s", Urls.APP_QASE_LOGIN));
@@ -51,9 +42,7 @@ public class PageLogin extends BasePage {
         passwordField.sendKeys(Credentials.PASSWORD);
         LOGGER.info("Click Log In");
         loginButton.click();
-
     }
-
     @Step("Input Failed Username and Failed Password")
     public void loginFailedToQase() {
         LOGGER.debug(String.format("Attempt to open URL: %s", Urls.APP_QASE_LOGIN));
@@ -65,6 +54,4 @@ public class PageLogin extends BasePage {
         LOGGER.info("Click Log In");
         loginButton.click();
     }
-
-
 }

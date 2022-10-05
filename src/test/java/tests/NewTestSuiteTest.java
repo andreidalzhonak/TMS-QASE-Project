@@ -11,14 +11,11 @@ import utils.RetryAnalyzer;
 @Epic("User Managment")
 @Feature("Test Suite")
 @Story("Create Test Suite")
-public class NewTestSuiteTest extends BaseWebTest {
-
+public class NewTestSuiteTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(NewTestSuiteTest.class.getName());
-
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Create Test Suite")
     @Severity(SeverityLevel.BLOCKER)
-
     public void createNewTestSuiteTest() {
         LOGGER.info(String.format("Page %s initialized", PageLogin.class.getName()));
         PageLogin pageLogin = new PageLogin(driverManager.getDriver());

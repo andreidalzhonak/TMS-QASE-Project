@@ -3,29 +3,27 @@ package api.test;
 import api.constants.UrlsApi;
 import api.models.TestSuiteModel;
 import api.testdata.PrepareDataApi;
-import constants.Credentials;
 import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import models.LoginModel;
 import org.testng.annotations.Test;
-import tests.BaseApiTest;
 import utils.RetryAnalyzer;
 
 @Epic("User Managment")
 @Feature("Test Suite")
 @Story("Create Test Suite")
 
-public class createTestSuiteApiTest extends BaseApiTest {
+public class CreateTestSuiteApiTest {
 
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Create Test suite API")
     @Severity(SeverityLevel.BLOCKER)
-
     public void createTestSuiteTest() {
         TestSuiteModel testsuite = PrepareDataApi.getValidDataForTestSuite();
         RestAssured
                 .given()
-                .header("Token", Credentials.TOKEN)
+                .header("Token", LoginModel.TOKEN)
                 .contentType(ContentType.JSON)
                 .and()
                 .when()
@@ -37,6 +35,5 @@ public class createTestSuiteApiTest extends BaseApiTest {
                 .statusCode(200)
                 .log().body()
                 .log().status();
-
     }
 }

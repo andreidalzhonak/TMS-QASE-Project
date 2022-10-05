@@ -14,15 +14,11 @@ import utils.RetryAnalyzer;
 @Epic("User Managment")
 @Feature("Test Case")
 @Story("Create Test Case")
-
-
-public class NewTestCaseTest extends BaseWebTest {
+public class NewTestCaseTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(NewTestCaseTest.class.getName());
-
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Create Test Case")
     @Severity(SeverityLevel.BLOCKER)
-
     public void createNewTestCaseTest() throws InterruptedException {
         LOGGER.info(String.format("Page %s initialized", PageLogin.class.getName()));
         PageLogin pageLogin = new PageLogin(driverManager.getDriver());

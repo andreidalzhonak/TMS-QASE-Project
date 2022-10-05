@@ -1,6 +1,6 @@
-package driverManager.threadlocalmanager;
+package drivermanager.threadlocalmanager;
 
-import driverManager.DriverType;
+import drivermanager.DriverType;
 
 public class DriverThreadLocalManagerFactory {
     public DriverThreadLocalManager getManager(DriverType driverType) {
@@ -10,6 +10,9 @@ public class DriverThreadLocalManagerFactory {
         switch (driverType) {
             case CHROME:
                 driverThreadLocalManager = new ChromeDriverThreadLocalManager();
+                break;
+            case FIREFOX:
+                driverThreadLocalManager = new FirefoxDriverThreadLocalManager();
                 break;
             default:
                 throw new IllegalStateException("Unexpected driver type " + driverType);

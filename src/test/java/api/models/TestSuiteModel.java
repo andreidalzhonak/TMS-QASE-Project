@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class TestSuiteModel {
-
     private String title;
     private String description;
     private String precondition;

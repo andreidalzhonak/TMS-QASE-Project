@@ -35,7 +35,7 @@
         <classes>
             <class name="api.test.CreateMilestoneApiTest"></class>
             <class name="api.test.CreateTestCaseApiTest"></class>
-            <class name="api.test.createTestSuiteApiTest"></class>
+            <class name="api.test.CreateTestSuiteApiTest"></class>
         </classes>
     </test>
 

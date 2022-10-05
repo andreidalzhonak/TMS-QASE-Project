@@ -12,7 +12,7 @@
     </test>
     <test name="Api tests">
         <classes>
-            <class name="api.test.createTestSuiteApiTest"></class>
+            <class name="api.test.CreateTestSuiteApiTest"></class>
             <class name="api.test.CreateTestCaseApiTest"></class>
             <class name="api.test.CreateMilestoneApiTest"></class>
         </classes>

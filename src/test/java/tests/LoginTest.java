@@ -12,11 +12,8 @@ import utils.RetryAnalyzer;
 @Epic("User Managment")
 @Feature("Login")
 @Story("Input Credentials")
-
-public class LoginTest extends BaseWebTest {
-
+public class LoginTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(LoginTest.class.getName());
-
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Login in Qase account")
     @Severity(SeverityLevel.BLOCKER)
@@ -32,7 +29,6 @@ public class LoginTest extends BaseWebTest {
         LOGGER.info("Check what create button is Displayed");
         Assert.assertTrue(projectsPage.createButtonIsDisplayed(), "Button isn't displayed");
     }
-
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Login failed in Qase account")
     @Severity(SeverityLevel.BLOCKER)
