@@ -61,11 +61,3 @@ public class PageLogin extends BasePage {
         loginButton.click();
     }
 }
-
-
-
-
-
-
-
-
