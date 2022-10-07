@@ -5,7 +5,6 @@ import api.models.StepsModel;
 import api.models.TestCaseModel;
 import api.models.TestSuiteModel;
 import utils.FakeMessageGenerator;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +17,7 @@ public class PrepareDataApi {
                 .due_date(FakeMessageGenerator.generateDueDataApi())
                 .build();
     }
+
     public static TestSuiteModel getValidDataForTestSuite() {
         return TestSuiteModel
                 .builder()
@@ -27,6 +27,7 @@ public class PrepareDataApi {
                 .parent_id(FakeMessageGenerator.generateParent())
                 .build();
     }
+
     public static TestCaseModel getValidDataForTestCase() {
         return TestCaseModel
                 .builder()
@@ -47,6 +48,7 @@ public class PrepareDataApi {
                 .status(FakeMessageGenerator.generateStatus())
                 .build();
     }
+
     public static List<StepsModel> getValidObjectForTestCase() {
         StepsModel step = StepsModel
                 .builder()

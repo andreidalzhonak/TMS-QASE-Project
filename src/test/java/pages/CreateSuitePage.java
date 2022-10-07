@@ -13,6 +13,7 @@ public class CreateSuitePage extends BasePage {
     public CreateSuitePage(WebDriver driver) {
         super(driver);
     }
+
     private static final Logger LOGGER = LogManager.getLogger(CreateSuitePage.class.getName());
     @FindBy(id = "name")
     private WebElement suiteNameField;
@@ -24,6 +25,7 @@ public class CreateSuitePage extends BasePage {
     private WebElement saveButton;
     @FindBy(xpath = "//div[@id='layout']/div[3]//span//span")
     private WebElement saveMessage;
+
     @Step("Input Data for create Test Suite ")
     public void inputTestSuiteData() {
         LOGGER.debug(String.format("Input data in : %s", suiteNameField.getText()));

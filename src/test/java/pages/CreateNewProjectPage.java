@@ -10,6 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import testdata.PrepareCreateNewProjectData;
+
 import java.util.concurrent.TimeUnit;
 
 public class CreateNewProjectPage extends BasePage {
@@ -17,19 +18,22 @@ public class CreateNewProjectPage extends BasePage {
     public CreateNewProjectPage(WebDriver driver) {
         super(driver);
     }
+
     private static final Logger LOGGER = LogManager.getLogger(CreateNewProjectPage.class.getName());
-    @FindBy(id = "inputTitle")
+    @FindBy(id = "project-name")
     private WebElement projectNameField;
-    @FindBy(id = "inputDescription")
+    @FindBy(id = "description-area")
     private WebElement descriptionNewProjectField;
-    @FindBy(xpath = "//div[contains(@class, 'row mt-2')]//div//button")
+    @FindBy(xpath = "//button[@type = 'submit']")
     private WebElement createProjectButton;
+
     @Step("Awaiting field Project Name")
     public void awaitProjectNameField() {
         LOGGER.debug(String.format("Await %s", projectNameField));
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("inputTitle")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("project-name")));
     }
+
     @Step("Input Data for New Project")
     public void createNewProject() throws InterruptedException {
         awaitProjectNameField();

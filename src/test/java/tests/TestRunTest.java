@@ -15,6 +15,7 @@ import utils.RetryAnalyzer;
 @Story("Start and Delete Test Run")
 public class TestRunTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(NewTestSuiteTest.class.getName());
+
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Start Test Run")
     @Severity(SeverityLevel.BLOCKER)
@@ -24,7 +25,7 @@ public class TestRunTest extends BaseWebWithThreadLocalTest {
         LOGGER.info(String.format("Open page" + PageLogin.class.getName()));
         LOGGER.info("Input username and Password");
         LOGGER.info("Click Button");
-        pageLogin.loginToQase();
+        pageLogin.loginToQase(admin);
         LOGGER.info(String.format("Page %s initialized", ProjectsPage.class.getName()));
         ProjectsPage projectsPage = new ProjectsPage(driverManager.getDriver());
         LOGGER.info("Click Project");
@@ -42,6 +43,7 @@ public class TestRunTest extends BaseWebWithThreadLocalTest {
         LOGGER.info("Check notification start test run ");
         Assert.assertEquals(testRunsPage.getTestRunMessage(), "Run was created successfully!");
     }
+
     @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
     @Description("Delete Test Run")
     @Severity(SeverityLevel.BLOCKER)
@@ -51,7 +53,7 @@ public class TestRunTest extends BaseWebWithThreadLocalTest {
         LOGGER.info(String.format("Open page" + PageLogin.class.getName()));
         LOGGER.info("Input username and Password");
         LOGGER.info("Click Button");
-        pageLogin.loginToQase();
+        pageLogin.loginToQase(admin);
         LOGGER.info(String.format("Page %s initialized", ProjectsPage.class.getName()));
         ProjectsPage projectsPage = new ProjectsPage(driverManager.getDriver());
         LOGGER.info("Click Project");

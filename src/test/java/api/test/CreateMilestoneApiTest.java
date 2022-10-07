@@ -6,15 +6,14 @@ import api.testdata.PrepareDataApi;
 import io.qameta.allure.*;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import models.LoginModel;
 import org.testng.annotations.Test;
+import tests.BaseCredentialsTest;
 import utils.RetryAnalyzer;
 
 @Epic("User Managment")
 @Feature("Milestone")
 @Story("Create Milestone")
-public class CreateMilestoneApiTest {
-
+public class CreateMilestoneApiTest extends BaseCredentialsTest {
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Create Milestone API")
     @Severity(SeverityLevel.BLOCKER)
@@ -22,7 +21,7 @@ public class CreateMilestoneApiTest {
         MilestoneModel milestone = PrepareDataApi.getValidDataForMilestoun();
         RestAssured
                 .given()
-                .header("Token", LoginModel.TOKEN)
+                .header("token", admin.getToken())
                 .contentType(ContentType.JSON)
                 .and()
                 .when()

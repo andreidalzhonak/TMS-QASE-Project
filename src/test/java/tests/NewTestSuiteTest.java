@@ -13,6 +13,7 @@ import utils.RetryAnalyzer;
 @Story("Create Test Suite")
 public class NewTestSuiteTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(NewTestSuiteTest.class.getName());
+
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Create Test Suite")
     @Severity(SeverityLevel.BLOCKER)
@@ -22,7 +23,7 @@ public class NewTestSuiteTest extends BaseWebWithThreadLocalTest {
         LOGGER.info(String.format("Open page" + PageLogin.class.getName()));
         LOGGER.info("Input username and Password");
         LOGGER.info("Click Button");
-        pageLogin.loginToQase();
+        pageLogin.loginToQase(admin);
         LOGGER.info(String.format("Page %s initialized", ProjectsPage.class.getName()));
         ProjectsPage projectsPage = new ProjectsPage(driverManager.getDriver());
         LOGGER.info("Click Project");

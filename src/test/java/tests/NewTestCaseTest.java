@@ -10,12 +10,12 @@ import pages.*;
 import testdata.PrepareCreateTestCaseData;
 import utils.RetryAnalyzer;
 
-
 @Epic("User Managment")
 @Feature("Test Case")
 @Story("Create Test Case")
 public class NewTestCaseTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(NewTestCaseTest.class.getName());
+
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Create Test Case")
     @Severity(SeverityLevel.BLOCKER)
@@ -25,7 +25,7 @@ public class NewTestCaseTest extends BaseWebWithThreadLocalTest {
         LOGGER.info(String.format("Open page" + PageLogin.class.getName()));
         LOGGER.info("Input username and Password");
         LOGGER.info("Click Button");
-        pageLogin.loginToQase();
+        pageLogin.loginToQase(admin);
         LOGGER.info(String.format("Page %s initialized", ProjectsPage.class.getName()));
         ProjectsPage projectsPage = new ProjectsPage(driverManager.getDriver());
         LOGGER.info("Click Project");

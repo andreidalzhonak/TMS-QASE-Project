@@ -10,10 +10,12 @@ import tests.BaseWebWithThreadLocalTest;
 
 public class TestListeners implements ITestListener {
     private static final Logger LOGGER = LogManager.getLogger(TestListeners.class.getName());
+
     @Override
     public void onTestStart(ITestResult iTestResult) {
         LOGGER.info("Test Started");
     }
+
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
         Object currentClass = iTestResult.getInstance();
@@ -24,6 +26,7 @@ public class TestListeners implements ITestListener {
         allureService.takeScreenshot(driver);
         LOGGER.info("Test Passed");
     }
+
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         Object currentClass = iTestResult.getInstance();
@@ -33,18 +36,22 @@ public class TestListeners implements ITestListener {
         allureService.getSystemName();
         allureService.takeScreenshot(driver);
     }
+
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
 
     }
+
     @Override
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
 
     }
+
     @Override
     public void onStart(ITestContext iTestContext) {
 
     }
+
     @Override
     public void onFinish(ITestContext iTestContext) {
 

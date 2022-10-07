@@ -17,6 +17,7 @@ public class TestRunsPage extends BasePage {
     public TestRunsPage(WebDriver driver) {
         super(driver);
     }
+
     JavascriptExecutor js = (JavascriptExecutor) driver;
     @FindBy(id = "start-new-test-run-button")
     private WebElement startNewTestRunButton;
@@ -36,54 +37,64 @@ public class TestRunsPage extends BasePage {
     private WebElement deleteRun;
     @FindBy(xpath = "//div[@class='no-entities-content']//a")
     private WebElement startTestRunButton;
+
     @Step("Click Drop Down button")
     public void clickDropDownButton() {
         LOGGER.debug(String.format("Click Drop Down button: %s", dropDownButton.getText()));
         dropDownButton.click();
     }
+
     @Step("Check start new test run button")
     public String getNameButton() {
         LOGGER.debug(String.format("Check start new test run button: %s", startTestRunButton.getText()));
         String messageNameButton = startTestRunButton.getText();
         return messageNameButton;
     }
+
     @Step("Click Delete button")
     public void clickDeleteButton() {
         LOGGER.debug(String.format("Click Delete button: %s", deleteButton.getText()));
         deleteButton.click();
     }
+
     @Step("Click Delete Run button")
     public void clickDeleteRunButton() {
         LOGGER.debug(String.format("Click Drop Down button: %s", deleteRun.getText()));
         deleteRun.click();
     }
+
     @Step("Take successful message notification start test run ")
     public String getTestRunMessage() {
         LOGGER.debug(String.format("Take message : %s", successfulNotificationStartTestRun.getText()));
         String message = successfulNotificationStartTestRun.getText();
         return message;
     }
+
     @Step("Click Add cases button")
     public void clickAddCasesButton() {
         js.executeScript("arguments[0].scrollIntoView();", addCasesButton);
         LOGGER.debug(String.format("Click Add cases button: %s", addCasesButton.getText()));
         addCasesButton.click();
     }
+
     @Step("Click Done button")
     public void clickDoneButton() {
         LOGGER.debug(String.format("Click done button: %s", doneButton.getText()));
         doneButton.click();
     }
+
     @Step("Click Start Run button")
     public void clickStartRunButton() {
         LOGGER.debug(String.format("Click done button: %s", startRunButton.getText()));
         startRunButton.click();
     }
+
     @Step("Click Start new test run button")
     public void clickStartNewTestRun() {
         LOGGER.debug(String.format("Click button: %s", startNewTestRunButton));
         startNewTestRunButton.click();
     }
+
     @Step("Input Data in Test run")
     public void inputFormForStartTestRun(StartTestRunsDataModel testRun) {
         LOGGER.debug(String.format("Click button: %s", startNewTestRunButton));
@@ -101,6 +112,7 @@ public class TestRunsPage extends BasePage {
         LOGGER.info("Click Start run button");
         clickStartRunButton();
     }
+
     @Step("Delete Test Run")
     public void deleteTestRun() {
         LOGGER.info("Click Drop Down button");

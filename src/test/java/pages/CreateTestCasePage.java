@@ -35,9 +35,9 @@ public class CreateTestCasePage extends BasePage {
     private WebElement expectedResultField;
     @FindBy(xpath = "//div[contains(@class, 'save-menu-wrapper')]//button[contains(@id, 'save-case')]")
     private WebElement saveButton;
-    @FindBy(xpath = "//div[contains(@class, 'select-block')]//button[contains(@type, 'button')]")
+    @FindBy(xpath= "//div[contains(@class, 'select-block')]//button[contains(@type, 'button')]")
     private WebElement testCaseSteps;
-    @FindBy(xpath = "//div[contains(@class, 'select-block')]/div/div//div//div/div[contains(., 'Classic')]")
+    @FindBy(xpath = "//div[contains(@class, 'select-block')]/descendant::div[contains(text(), 'Classic')]")
     private WebElement optionTestCaseSteps;
     @FindBy(xpath = " //*[@id=\"layout\"]/div[3]/div/span")
     private WebElement successfulNotificationCreateTestCase;
@@ -45,12 +45,14 @@ public class CreateTestCasePage extends BasePage {
     public CreateTestCasePage(WebDriver driver) {
         super(driver);
     }
+
     @Step("Take successful message notification create Test Case ")
     public String getTestCaseMessage() {
         LOGGER.debug(String.format("Take message : %s", successfulNotificationCreateTestCase.getText()));
         String message = successfulNotificationCreateTestCase.getText();
         return message;
     }
+
     @Step("Choose option in Test Case Steps")
     public void selectOptionInListTestCaseSteps() {
         js.executeScript("arguments[0].scrollIntoView();", testCaseSteps);
@@ -59,6 +61,7 @@ public class CreateTestCasePage extends BasePage {
         LOGGER.debug(String.format("Click option: %s", optionTestCaseSteps.getText()));
         optionTestCaseSteps.click();
     }
+
     @Step("Click 'Add step' Button")
     public void clickAddStepButton() {
         js.executeScript("arguments[0].scrollIntoView();", addStepButton);
