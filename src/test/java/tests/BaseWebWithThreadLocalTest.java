@@ -17,7 +17,7 @@ public class BaseWebWithThreadLocalTest extends BaseCredentialsTest {
     @BeforeMethod
     public void createManager() {
         DriverFactory factory = new DriverFactory();
-        driverManager = factory.getManager(DriverType.FIREFOX);
+        driverManager = factory.getManager(DriverType.CHROME);
     }
 
     @BeforeMethod
