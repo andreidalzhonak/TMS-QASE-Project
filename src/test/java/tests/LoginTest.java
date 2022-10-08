@@ -12,9 +12,7 @@ import utils.RetryAnalyzer;
 @Epic("User Managment")
 @Feature("Login")
 @Story("Input Credentials")
-
-public class LoginTest extends BaseWebTest {
-
+public class LoginTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(LoginTest.class.getName());
 
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
@@ -23,7 +21,7 @@ public class LoginTest extends BaseWebTest {
     public void inputCredentialsTest() {
         LOGGER.info(String.format("Page %s initialized", PageLogin.class.getName()));
         PageLogin pageLogin = new PageLogin(driverManager.getDriver());
-        pageLogin.loginToQase();
+        pageLogin.loginToQase(admin);
         LOGGER.info(String.format("Open page" + PageLogin.class.getName()));
         LOGGER.info("Input username and Password");
         LOGGER.info("Click Button");

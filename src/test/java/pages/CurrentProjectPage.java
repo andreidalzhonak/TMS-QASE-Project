@@ -7,19 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 public class CurrentProjectPage extends BasePage {
     private static final Logger LOGGER = LogManager.getLogger(ProjectsPage.class.getName());
-
     @FindBy(id = "create-suite-button")
     private WebElement createSuiteButton;
-
     @FindBy(id = "create-case-button")
     private WebElement createCaseButton;
-
     @FindBy(xpath = "//div[contains(@id, 'layout')]//a[contains(@title, 'Test Runs')]")
     private WebElement testRunsButton;
-
 
     public CurrentProjectPage(WebDriver driver) {
         super(driver);

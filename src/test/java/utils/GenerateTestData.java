@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Random;
 
 public class GenerateTestData {
-
     public static int getRandomIndex(int listSize) {
         Random rand = new Random();
         return rand.nextInt(listSize);
@@ -66,6 +65,4 @@ public class GenerateTestData {
         List<String> defaultAssignee = DefaultAssignee.getDefaultAssignee();
         return defaultAssignee.get(getRandomIndex(defaultAssignee.size()));
     }
-
-
 }

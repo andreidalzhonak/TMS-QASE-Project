@@ -5,19 +5,15 @@ import com.github.javafaker.Faker;
 import java.time.Instant;
 
 public class FakeMessageGenerator {
-
     public static String generateAccountEmail() {
-
         return new Faker().internet().emailAddress();
     }
 
     public static String generateAccountPassword() {
-
         return new Faker().internet().password();
     }
 
     public static String generateTitleApi() {
-
         return new Faker().company().name();
     }
 
@@ -33,7 +29,6 @@ public class FakeMessageGenerator {
     public static int generateParent() {
         return new Faker().number().numberBetween(1, 6);
     }
-
 
     public static String generatePreconditionApi() {
         return new Faker().gameOfThrones().city();
@@ -68,11 +63,11 @@ public class FakeMessageGenerator {
     }
 
     public static int generateSuiteId() {
-        return new Faker().number().numberBetween(0, 57);
+        return new Faker().number().numberBetween(0, 140);
     }
 
     public static int generateMilestoneId() {
-        return new Faker().number().numberBetween(21, 30);
+        return new Faker().number().numberBetween(1, 100);
     }
 
     public static int generateAutomation() {

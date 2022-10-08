@@ -19,40 +19,28 @@ public class CreateTestCasePage extends BasePage {
     JavascriptExecutor js = (JavascriptExecutor) driver;
     @FindBy(id = "title")
     private WebElement titleField;
-
     @FindBy(id = "0-description")
     private WebElement descriptionField;
-
     @FindBy(id = "0-preconditions")
     private WebElement preconditionsField;
-
     @FindBy(id = "0-postconditions")
     private WebElement postconditionsField;
-
     @FindBy(xpath = "//div[contains(@class, 'steps-add')]//a[contains(@id, 'add-step')]")
     private WebElement addStepButton;
-
     @FindBy(id = "action[0]")
     private WebElement actionField;
-
     @FindBy(id = "data[0]")
     private WebElement inputDataField;
-
     @FindBy(id = "expected_result[0]")
     private WebElement expectedResultField;
-
     @FindBy(xpath = "//div[contains(@class, 'save-menu-wrapper')]//button[contains(@id, 'save-case')]")
     private WebElement saveButton;
-
-    @FindBy(xpath = "//div[contains(@class, 'select-block')]//button[contains(@type, 'button')]")
+    @FindBy(xpath= "//div[contains(@class, 'select-block')]//button[contains(@type, 'button')]")
     private WebElement testCaseSteps;
-
-    @FindBy(xpath = "//div[contains(@class, 'select-block')]/div/div//div//div/div[contains(., 'Classic')]")
+    @FindBy(xpath = "//div[contains(@class, 'select-block')]/descendant::div[contains(text(), 'Classic')]")
     private WebElement optionTestCaseSteps;
-
     @FindBy(xpath = " //*[@id=\"layout\"]/div[3]/div/span")
     private WebElement successfulNotificationCreateTestCase;
-
 
     public CreateTestCasePage(WebDriver driver) {
         super(driver);
@@ -131,6 +119,5 @@ public class CreateTestCasePage extends BasePage {
         expectedResultField.sendKeys(FakeMessageGenerator.generateExpectedResultTestCase());
         LOGGER.info("Click Save button");
         clickSaveButton();
-
     }
 }

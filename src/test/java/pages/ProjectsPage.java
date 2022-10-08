@@ -7,19 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 public class ProjectsPage extends BasePage {
     private static final Logger LOGGER = LogManager.getLogger(ProjectsPage.class.getName());
-
     @FindBy(id = "createButton")
     private WebElement createNewButton;
-
-    @FindBy(xpath = "//div[contains(@id, 'application-content')]//div//table//td//div//a[contains(@class, 'defect-title')]")
+    @FindBy(xpath = "//div[contains(@id, 'application-content')]//a[contains(@class, 'defect-title')]")
     private WebElement selectionProject;
-
-    @FindBy(xpath = "//div[contains(@id, 'application-content')]//div//table//td//div//a[text() = 'ShareLane']")
+    @FindBy(xpath = "//div[contains(@id, 'application-content')]//a[text() = 'ShareLane']")
     private WebElement selectionShareLaneProject;
-
 
     public ProjectsPage(WebDriver driver) {
         super(driver);
@@ -42,6 +37,7 @@ public class ProjectsPage extends BasePage {
     public void clickProject() {
         LOGGER.debug(String.format("Click : %s", selectionProject.getText()));
         selectionProject.click();
+
     }
 
     @Step("Selection Project SHARELANE")

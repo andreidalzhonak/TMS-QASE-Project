@@ -1,8 +1,8 @@
 package tests;
 
-import driverManager.DriverType;
-import driverManager.threadlocalmanager.DriverThreadLocalManager;
-import driverManager.threadlocalmanager.DriverThreadLocalManagerFactory;
+import drivermanager.DriverType;
+import drivermanager.DriverManager;
+import drivermanager.DriverFactory;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
@@ -11,13 +11,12 @@ import org.testng.annotations.*;
 import utils.TestListeners;
 
 @Listeners(TestListeners.class)
-public class BaseWebWithThreadLocalTest extends CommonBaseTest {
-
-    DriverThreadLocalManager driverManager;
+public class BaseWebWithThreadLocalTest extends BaseCredentialsTest {
+    DriverManager driverManager;
 
     @BeforeMethod
     public void createManager() {
-        DriverThreadLocalManagerFactory factory = new DriverThreadLocalManagerFactory();
+        DriverFactory factory = new DriverFactory();
         driverManager = factory.getManager(DriverType.CHROME);
     }
 
@@ -34,7 +33,6 @@ public class BaseWebWithThreadLocalTest extends CommonBaseTest {
 
     @Attachment
     public String getBrowser() {
-
         Capabilities cap = ((RemoteWebDriver) driverManager.getDriver()).getCapabilities();
         String browserName = cap.getBrowserName().toLowerCase();
         String v = cap.getVersion();
@@ -43,8 +41,6 @@ public class BaseWebWithThreadLocalTest extends CommonBaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void tearDown() {
-        driverManager.getDriver().quit();
+        driverManager.quitDriver();
     }
-
-
 }

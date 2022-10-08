@@ -1,8 +1,8 @@
 package pages;
 
-import constants.Credentials;
 import constants.Urls;
 import io.qameta.allure.Step;
+import models.CredentialsModel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -14,13 +14,10 @@ public class PageLogin extends BasePage {
     private static final Logger LOGGER = LogManager.getLogger(PageLogin.class.getName());
     @FindBy(id = "inputEmail")
     private WebElement emailField;
-
     @FindBy(id = "inputPassword")
     private WebElement passwordField;
-
     @FindBy(id = "btnLogin")
     private WebElement loginButton;
-
     @FindBy(xpath = "//div[contains(@class, 'has-error')]//div")
     private WebElement notificationErrorEmail;
 
@@ -40,18 +37,16 @@ public class PageLogin extends BasePage {
         driver.get(Urls.APP_QASE_LOGIN);
     }
 
-
     @Step("Input Username and Password")
-    public void loginToQase() {
+    public void loginToQase(CredentialsModel admin) {
         LOGGER.debug(String.format("Attempt to open URL: %s", Urls.APP_QASE_LOGIN));
         openAccountsPage();
-        LOGGER.debug(String.format("Input username %s", Credentials.EMAIL));
-        emailField.sendKeys(Credentials.EMAIL);
-        LOGGER.debug(String.format("Input password %s", Credentials.PASSWORD));
-        passwordField.sendKeys(Credentials.PASSWORD);
+        LOGGER.debug(String.format("Input username %s", admin.getEmail()));
+        emailField.sendKeys(admin.getEmail());
+        LOGGER.debug(String.format("Input password %s", admin.getPassword()));
+        passwordField.sendKeys(admin.getPassword());
         LOGGER.info("Click Log In");
         loginButton.click();
-
     }
 
     @Step("Input Failed Username and Failed Password")
@@ -65,6 +60,4 @@ public class PageLogin extends BasePage {
         LOGGER.info("Click Log In");
         loginButton.click();
     }
-
-
 }

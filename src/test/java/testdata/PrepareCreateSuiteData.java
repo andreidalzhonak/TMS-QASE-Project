@@ -1,6 +1,5 @@
 package testdata;
 
-
 import models.CreateTestSuiteDataModel;
 import utils.FakeMessageGenerator;
 

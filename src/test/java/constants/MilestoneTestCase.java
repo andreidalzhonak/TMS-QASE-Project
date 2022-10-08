@@ -6,7 +6,7 @@ import java.util.List;
 public class MilestoneTestCase {
     public static List<String> getMilestone() {
         return Arrays.asList(
-                "Gerlach-Emard",
+                "Larson Group",
                 "Harvey-Stehr",
                 "Ondricka-Halvorson"
         );

@@ -19,32 +19,22 @@ public class TestRunsPage extends BasePage {
     }
 
     JavascriptExecutor js = (JavascriptExecutor) driver;
-
     @FindBy(id = "start-new-test-run-button")
     private WebElement startNewTestRunButton;
-
     @FindBy(id = "edit-run-add-cases-button")
     private WebElement addCasesButton;
-
     @FindBy(id = "select-cases-done-button")
     private WebElement doneButton;
-
     @FindBy(id = "save-run-button")
     private WebElement startRunButton;
-
     @FindBy(xpath = " //*[@id=\"layout\"]/div[3]/div/span")
     private WebElement successfulNotificationStartTestRun;
-
     @FindBy(xpath = "//div[contains(@class, 'dropdown')]//a[contains(@class, 'btn')]")
     private WebElement dropDownButton;
-
     @FindBy(xpath = "//div[contains(@class, 'dropdown-menu')]//div/a[text() = 'Delete']")
     private WebElement deleteButton;
-
     @FindBy(xpath = "//form[contains(@class, 'form-delete-milestone')]//button")
     private WebElement deleteRun;
-
-
     @FindBy(xpath = "//div[@class='no-entities-content']//a")
     private WebElement startTestRunButton;
 
@@ -61,7 +51,6 @@ public class TestRunsPage extends BasePage {
         return messageNameButton;
     }
 
-
     @Step("Click Delete button")
     public void clickDeleteButton() {
         LOGGER.debug(String.format("Click Delete button: %s", deleteButton.getText()));
@@ -73,7 +62,6 @@ public class TestRunsPage extends BasePage {
         LOGGER.debug(String.format("Click Drop Down button: %s", deleteRun.getText()));
         deleteRun.click();
     }
-
 
     @Step("Take successful message notification start test run ")
     public String getTestRunMessage() {

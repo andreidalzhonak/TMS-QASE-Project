@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class StepsModel  {
+public class StepsModel {
     private String action;
     private String expected_result;
     private int position;

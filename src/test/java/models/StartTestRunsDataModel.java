@@ -6,8 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class StartTestRunsDataModel {
-
-
     private String description;
     private String milestone;
     private String defaultAssignee;

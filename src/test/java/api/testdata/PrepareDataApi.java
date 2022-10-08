@@ -5,7 +5,6 @@ import api.models.StepsModel;
 import api.models.TestCaseModel;
 import api.models.TestSuiteModel;
 import utils.FakeMessageGenerator;
-
 import java.util.ArrayList;
 import java.util.List;
 

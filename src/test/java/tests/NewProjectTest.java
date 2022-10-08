@@ -14,21 +14,19 @@ import utils.RetryAnalyzer;
 @Epic("User Managment")
 @Feature("Login")
 @Story("Input Credentials")
-
-public class NewProjectTest extends BaseWebTest {
+public class NewProjectTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(NewProjectTest.class.getName());
 
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Login in Qase account")
     @Severity(SeverityLevel.BLOCKER)
-
     public void createNewProjectTest() throws InterruptedException {
         LOGGER.info(String.format("Page %s initialized", PageLogin.class.getName()));
         PageLogin pageLogin = new PageLogin(driverManager.getDriver());
         LOGGER.info(String.format("Open page" + PageLogin.class.getName()));
         LOGGER.info("Input username and Password");
         LOGGER.info("Click Button");
-        pageLogin.loginToQase();
+        pageLogin.loginToQase(admin);
         LOGGER.info(String.format("Page %s initialized", ProjectsPage.class.getName()));
         ProjectsPage projectsPage = new ProjectsPage(driverManager.getDriver());
         LOGGER.info("Click Create Button");

@@ -13,21 +13,19 @@ import utils.RetryAnalyzer;
 @Epic("User Managment")
 @Feature("Test Run")
 @Story("Start and Delete Test Run")
-public class TestRunTest extends BaseWebTest {
-
+public class TestRunTest extends BaseWebWithThreadLocalTest {
     private static final Logger LOGGER = LogManager.getLogger(NewTestSuiteTest.class.getName());
 
     @Test(priority = 1, retryAnalyzer = RetryAnalyzer.class)
     @Description("Start Test Run")
     @Severity(SeverityLevel.BLOCKER)
-
     public void startTestRunTest() {
         LOGGER.info(String.format("Page %s initialized", PageLogin.class.getName()));
         PageLogin pageLogin = new PageLogin(driverManager.getDriver());
         LOGGER.info(String.format("Open page" + PageLogin.class.getName()));
         LOGGER.info("Input username and Password");
         LOGGER.info("Click Button");
-        pageLogin.loginToQase();
+        pageLogin.loginToQase(admin);
         LOGGER.info(String.format("Page %s initialized", ProjectsPage.class.getName()));
         ProjectsPage projectsPage = new ProjectsPage(driverManager.getDriver());
         LOGGER.info("Click Project");
@@ -49,17 +47,13 @@ public class TestRunTest extends BaseWebTest {
     @Test(priority = 2, retryAnalyzer = RetryAnalyzer.class)
     @Description("Delete Test Run")
     @Severity(SeverityLevel.BLOCKER)
-
     public void deleteTestRunTest() {
-        //LOGGER.info("Launch Start Test Run test");
-        //startTestRunTest();
-
         LOGGER.info(String.format("Page %s initialized", PageLogin.class.getName()));
         PageLogin pageLogin = new PageLogin(driverManager.getDriver());
         LOGGER.info(String.format("Open page" + PageLogin.class.getName()));
         LOGGER.info("Input username and Password");
         LOGGER.info("Click Button");
-        pageLogin.loginToQase();
+        pageLogin.loginToQase(admin);
         LOGGER.info(String.format("Page %s initialized", ProjectsPage.class.getName()));
         ProjectsPage projectsPage = new ProjectsPage(driverManager.getDriver());
         LOGGER.info("Click Project");
@@ -74,5 +68,4 @@ public class TestRunTest extends BaseWebTest {
         LOGGER.info("Check name start new test run button");
         Assert.assertEquals(testRunsPage.getNameButton(), "Start new test run");
     }
-
 }
