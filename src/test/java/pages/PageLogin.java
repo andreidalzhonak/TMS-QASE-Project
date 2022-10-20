@@ -41,9 +41,9 @@ public class PageLogin extends BasePage {
     public void loginToQase(CredentialsModel admin) {
         LOGGER.debug(String.format("Attempt to open URL: %s", Urls.APP_QASE_LOGIN));
         openAccountsPage();
-        LOGGER.debug(String.format("Input username %s", admin.getEmail()));
+        LOGGER.debug(String.format("Input username"));
         emailField.sendKeys(admin.getEmail());
-        LOGGER.debug(String.format("Input password %s", admin.getPassword()));
+        LOGGER.debug(String.format("Input password"));
         passwordField.sendKeys(admin.getPassword());
         LOGGER.info("Click Log In");
         loginButton.click();
